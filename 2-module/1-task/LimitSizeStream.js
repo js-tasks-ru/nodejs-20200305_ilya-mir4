@@ -6,6 +6,9 @@ class LimitSizeStream extends stream.Transform {
     super(options);
     this.limit = options.limit;
     this.encoding = options.encoding;
+    this.on('error', () => {
+      this.error = true;
+    });
   }
 
   _transform(chunk, encoding, callback) {
