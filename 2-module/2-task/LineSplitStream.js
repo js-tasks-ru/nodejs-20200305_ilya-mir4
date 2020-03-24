@@ -1,3 +1,6 @@
+const stream = require('stream');
+const os = require('os');
+
 class LineSplitStream extends stream.Transform {
   constructor(options) {
     super(options);
@@ -32,3 +35,5 @@ class LineSplitStream extends stream.Transform {
     callback();
   }
 }
+
+module.exports = LineSplitStream;
