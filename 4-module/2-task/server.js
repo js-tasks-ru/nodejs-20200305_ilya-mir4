@@ -42,7 +42,6 @@ server.on('request', (req, res) => {
       });
 
       LimitSize.on('error', (err) => {
-        console.warn(err);
         if (err.code === 'LIMIT_EXCEEDED') {
           res.statusCode = 413;
           res.end('too big');
