@@ -9,17 +9,11 @@ module.exports.productList = async function productList(ctx, next) {
   const productList = await Product.find({}).select('-__v');
 
   if (productList.length === 0) {
-    console.warn('here');
     ctx.body = {
       products: new Array(0),
     };
     return next();
   }
-
-  console.warn(productList);
-
-  console.warn('here12312');
-
 
   ctx.body = {
     products: productList.map((productItem) => ({
