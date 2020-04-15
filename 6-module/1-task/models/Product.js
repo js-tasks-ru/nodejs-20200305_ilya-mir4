@@ -6,12 +6,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   description: {
     type: String,
     required: true,
   },
-
   price: {
     type: Number,
     required: true,
@@ -22,14 +20,12 @@ const productSchema = new mongoose.Schema({
     ref: 'Category',
     required: true,
   },
-
   subcategory: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
 
   images: [String],
-
 });
 
 module.exports = connection.model('Product', productSchema);

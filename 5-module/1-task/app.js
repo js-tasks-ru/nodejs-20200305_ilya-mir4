@@ -5,6 +5,11 @@ const app = new Koa();
 app.use(require('koa-static')(path.join(__dirname, 'public')));
 app.use(require('koa-bodyparser')());
 
+
+app.use(async (ctx, next) => {
+  return next();
+});
+
 const Router = require('koa-router');
 const router = new Router();
 
