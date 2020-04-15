@@ -1,25 +1,7 @@
-const Categories = require('../models/Category');
-
-
-function mapCategory(category) {
-  return {
-    id: category.id,
-    title: category.title,
-    subcategories: category.subcategories.map((subcategory) => ({
-      id: subcategory.id,
-      title: subcategory.title,
-    })),
-  };
-};
+const Category = require('../models/Category');
+const mapCategory = require('../mappers/category');
 
 module.exports.categoryList = async function categoryList(ctx, next) {
-  const categories = await Categories.find({}).select('-__v');
-
-
-  if (!categories) {
-    ctx.body = [];
-    return next();
-  }
-
-  ctx.body = {categories: categories.map((cat) => mapCategory(cat))};
+  const categories = await Category.find();
+  ctx.body = {categories: categories.map(mapCategory)};
 };

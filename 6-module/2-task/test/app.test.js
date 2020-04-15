@@ -112,10 +112,10 @@ describe('6-module-2-task', () => {
               'ответ сервера содержит массив .products'
           ).to.have.property('products').that.is.an('array');
 
-          // expect(
-          //     response.data.products,
-          //     'массив пустой'
-          // ).to.be.empty;
+          expect(
+              response.data.products,
+              'массив пустой'
+          ).to.be.empty;
         });
 
         it('товары по существующей подкатегории', async () => {
